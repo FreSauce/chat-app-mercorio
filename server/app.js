@@ -34,7 +34,6 @@ io.use(async (socket, next) => {
         res.email,
         res.picture
       );
-      // console.log(socket.user);
       return next();
     }
   } catch (error) {

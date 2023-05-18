@@ -6,7 +6,6 @@ const InvitePerson = () => {
     e.preventDefault();
     const email = e.target.email.value;
     e.target.reset();
-    console.log(email);
     socket.emit("message:send", {
       receiverEmail: email,
       text: "Hey! I would like to chat with you.",

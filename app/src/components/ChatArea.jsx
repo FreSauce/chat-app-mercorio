@@ -28,7 +28,6 @@ const ChatArea = ({ conversation }) => {
   };
 
   useEffect(() => {
-    console.log("comp loaded");
     Scroll();
   }, [conversation?.messages]);
 

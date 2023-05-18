@@ -4,7 +4,6 @@ const { Conversation, Message, User } = require("../models");
 const fetchConversation = async (user1Id, user2Id) => {
   let conv;
   conv = await Conversation.findConversation(user1Id, user2Id);
-  console.log(conv?.messages);
   if (!conv) {
     conv = await Conversation.create({
       user1Id: user1Id,

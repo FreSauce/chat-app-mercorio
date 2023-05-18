@@ -15,11 +15,9 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     if (socket) {
       socket.on("user", (user) => {
-        console.log(user);
         setUser(user);
       });
       socket.on("conversation", (conversations) => {
-        console.log(conversations);
         let sortedMessages = conversations.map((conversation) => {
           let sortedMessages = conversation.messages.sort((a, b) => {
             return new Date(a.createdAt) - new Date(b.createdAt);
