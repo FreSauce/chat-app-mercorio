@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 
 var db;
-if (process.env.PRODUCTION == true) {
+if (process.env.PRODUCTION == "true") {
   db = new Sequelize("chatapp", "postgres", "admin123", {
     dialect: "postgres",
     host: "10.99.128.4",
