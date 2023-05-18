@@ -20,10 +20,8 @@ Conversation.findConversation = async function (user1Id, user2Id) {
       model: Message,
       as: "messages",
       where: {
-        conversationId: { [Op.col]: "Conversation.id" },
+        "$messages.conversationId$": { [Op.col]: "conversation.id" },
       },
-      required: true,
-      duplicating: false,
     },
   });
 

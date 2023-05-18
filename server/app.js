@@ -23,12 +23,6 @@ app.get("/", (req, res) => {
   res.send("working fine");
 });
 
-const PORT = process.env.PORT;
-
-server.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
-
 io.use(async (socket, next) => {
   const token = socket.handshake.query.token;
   try {
@@ -56,6 +50,7 @@ const onlineUsers = require("./onlineUsers");
 const {
   fetchAllConversations,
 } = require("./controllers/conversationController");
+const db = require("./models/db");
 
 const onConnection = (socket) => {
   console.log("New client connected");
@@ -72,3 +67,14 @@ const onConnection = (socket) => {
 };
 
 io.on("connection", onConnection);
+
+const PORT = process.env.PORT;
+
+db.authenticate().then(async () => {
+  console.log("Connection has been established successfully.");
+  await db.sync({ force: true });
+  console.log("All models were synchronized successfully.");
+  server.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
+});

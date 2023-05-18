@@ -7,7 +7,7 @@ const Message = db.define("message", {
     allowNull: false,
   },
   senderId: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
 });

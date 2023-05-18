@@ -15,6 +15,7 @@ const fetchConversation = async (user1Id, user2Id) => {
 };
 
 const fetchAllConversations = async (userId) => {
+  // return [];
   allConv = await Conversation.findAll({
     where: {
       [Op.or]: [{ user1Id: userId }, { user2Id: userId }],
@@ -24,28 +25,22 @@ const fetchAllConversations = async (userId) => {
         model: Message,
         as: "messages",
         where: {
-          conversationId: { [Op.col]: "Conversation.id" },
+          "$messages.conversationId$": { [Op.col]: "conversation.id" },
         },
-        required: true,
-        duplicating: false,
       },
       {
         model: User,
         as: "user1",
         where: {
-          id: { [Op.col]: "Conversation.user1Id" },
+          "$user1.id$": { [Op.col]: "conversation.user1Id" },
         },
-        required: true,
-        duplicating: false,
       },
       {
         model: User,
         as: "user2",
         where: {
-          id: { [Op.col]: "Conversation.user2Id" },
+          "$user2.id$": { [Op.col]: "conversation.user2Id" },
         },
-        required: true,
-        duplicating: false,
       },
     ],
   });
