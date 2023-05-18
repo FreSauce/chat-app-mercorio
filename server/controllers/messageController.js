@@ -3,9 +3,9 @@ const { fetchConversation } = require("./conversationController");
 
 const createMesage = async (senderId, receiverId, text) => {
   if (
-    message.text === "" ||
-    message.text.replace(/(\r\n|\n|\r)/gm, "") == "" ||
-    message.text === null
+    text === "" ||
+    text.replace(/(\r\n|\n|\r)/gm, "") == "" ||
+    text === null
   )
     return;
   let conv = await fetchConversation(senderId, receiverId);
