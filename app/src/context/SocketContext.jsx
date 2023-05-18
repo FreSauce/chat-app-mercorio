@@ -17,7 +17,7 @@ export const SocketProvider = ({ children }) => {
       async function setNewSocket() {
         const newSocket = io(import.meta.env.VITE_APP_SOCKET_URL, {
           query: { token: await user.getIdToken() },
-          // transports: ["websocket"],
+          transports: ["websocket"],
         });
         setSocket(newSocket);
       }
