@@ -17,18 +17,27 @@ const ChatArea = ({ conversation }) => {
     }
   };
 
-  const Scroll = () => {
+  const Scroll = (first) => {
     const { offsetHeight, scrollHeight, scrollTop } = container.current;
     if (scrollHeight <= scrollTop + offsetHeight + 100) {
+      container.current?.scrollTo(0, scrollHeight);
+    }
+    if (first) {
       container.current?.scrollTo(0, scrollHeight);
     }
   };
 
   useEffect(() => {
+    console.log("comp loaded");
     Scroll();
+  }, [conversation?.messages]);
+
+  useEffect(() => {
+    Scroll(true);
   }, [conversation]);
 
   useEffect(() => {
+    Scroll();
     document.addEventListener("keydown", keyPressHandler);
     return () => {
       document.removeEventListener("keydown", keyPressHandler);

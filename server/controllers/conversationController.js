@@ -27,6 +27,7 @@ const fetchAllConversations = async (userId) => {
         where: {
           "$messages.conversationId$": { [Op.col]: "conversation.id" },
         },
+        order: [["createdAt", "ASC"]],
       },
       {
         model: User,
