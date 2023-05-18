@@ -3,13 +3,13 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBJ0CXBvfzvtGgfYoaOyMblYUrzBU2_Hw0",
-  authDomain: "chat-app-225c7.firebaseapp.com",
-  projectId: "chat-app-225c7",
-  storageBucket: "chat-app-225c7.appspot.com",
-  messagingSenderId: "812026209995",
-  appId: "1:812026209995:web:e6b64d66486a2f474f5d4e",
-  measurementId: "G-DG1DEC3FHF",
+  apiKey: "AIzaSyDGEM6_ALtr0veb0UPUFaHzn1ocaKh40kk",
+  authDomain: "boreal-card-387104.firebaseapp.com",
+  projectId: "boreal-card-387104",
+  storageBucket: "boreal-card-387104.appspot.com",
+  messagingSenderId: "549391576004",
+  appId: "1:549391576004:web:dd621111090d3e6772d291",
+  measurementId: "G-93K14R5ZRS"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);

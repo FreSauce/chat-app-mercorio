@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "dist",
+    "site": "chatapp-mercor",
     "ignore": [
       "firebase.json",
       "**/.*",

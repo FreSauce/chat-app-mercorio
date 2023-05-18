@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:deploy": "env-cmd -f .env vite build && firebase deploy -P chat-app-225c7",
+    "build": "env-cmd -f .env vite build",
+    "build:deploy": "env-cmd -f .env vite build && firebase deploy --only hosting:chatapp-mercor",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
