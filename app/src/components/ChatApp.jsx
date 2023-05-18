@@ -50,7 +50,7 @@ const ChatApp = () => {
                   </h1>
                 </div>
 
-                <div className="flex-1 flex h-full max-h-[87vh]">
+                <div className="flex-1 flex h-full max-h-[86vh]">
                   <ConversationsSidebar
                     conversations={conversations}
                     setSelectedConversation={setSelectedConversation}

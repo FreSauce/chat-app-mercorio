@@ -26,6 +26,7 @@ const ConversationsSidebar = ({ conversations, setSelectedConversation }) => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
+      <InvitePerson />
       <div className="flex-1 h-full overflow-auto px-3">
         {filteredConversations.map((conv) => {
           return (
@@ -37,7 +38,6 @@ const ConversationsSidebar = ({ conversations, setSelectedConversation }) => {
             />
           );
         })}
-        <InvitePerson />
       </div>
     </div>
   );

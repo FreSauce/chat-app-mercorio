@@ -5,6 +5,7 @@ import Message from "./Message";
 const ChatArea = ({ conversation }) => {
   const socket = useSocketContext();
   const formRef = useRef(null);
+  const container = useRef(null);
   const [chatInput, setChatInput] = useState("");
 
   const keyPressHandler = (e) => {
@@ -15,6 +16,17 @@ const ChatArea = ({ conversation }) => {
       );
     }
   };
+
+  const Scroll = () => {
+    const { offsetHeight, scrollHeight, scrollTop } = container.current;
+    if (scrollHeight <= scrollTop + offsetHeight + 100) {
+      container.current?.scrollTo(0, scrollHeight);
+    }
+  };
+
+  useEffect(() => {
+    Scroll();
+  }, [conversation]);
 
   useEffect(() => {
     document.addEventListener("keydown", keyPressHandler);
@@ -49,7 +61,7 @@ const ChatArea = ({ conversation }) => {
           )}
         </h2>
       </div>
-      <div className="messages flex-1 overflow-auto">
+      <div className="messages flex-1 overflow-y-scroll" ref={container}>
         {conversation?.messages.map((message, index) => {
           return (
             <Message

@@ -15,7 +15,7 @@ const InvitePerson = () => {
   };
 
   return (
-    <div className="entry cursor-pointer transform hover:scale-[1.01] duration-500 transition-transform bg-white mb-4 rounded shadow-md ">
+    <div className="entry cursor-pointer transform hover:scale-[1.01] duration-500 transition-transform bg-white m-3 rounded shadow-md ">
       <div className="px-6 py-6 lg:px-8">
         <h3 className="mb-4 text-xl font-medium text-gray-900 ">
           Chat with a new Person
