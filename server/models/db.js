@@ -7,9 +7,7 @@ if (process.env.PRODUCTION == true) {
     host: "10.99.128.4",
   });
 } else {
-  db = new Sequelize(
-    "postgres://admin:PSgmrBY3g9YQLKbamZt90tmFpZ6RddbJ@dpg-chj0lq5269v2e2cp5elg-a.oregon-postgres.render.com/chatapp_w50p?ssl=true"
-  );
+  db = new Sequelize(process.env.SQL_DEVELOPMENT_URL);
 }
 
 module.exports = db;

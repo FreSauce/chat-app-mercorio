@@ -9,6 +9,7 @@ const ChatArea = ({ conversation }) => {
 
   const keyPressHandler = (e) => {
     if (e.key === "Enter" && e.target.name === "message" && !e.shiftKey) {
+      e.preventDefault();
       formRef.current.dispatchEvent(
         new Event("submit", { cancelable: true, bubbles: true })
       );
@@ -24,7 +25,11 @@ const ChatArea = ({ conversation }) => {
 
   const handleSendMessage = (e) => {
     e.preventDefault();
-    if (chatInput !== "" && conversation?.otherUser?.email) {
+    if (
+      chatInput !== "" &&
+      chatInput.replace(/(\r\n|\n|\r)/gm, "") !== "" &&
+      conversation?.otherUser?.email
+    ) {
       socket.emit("message:send", {
         receiverEmail: conversation?.otherUser?.email,
         text: chatInput,

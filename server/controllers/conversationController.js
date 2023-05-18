@@ -47,7 +47,9 @@ const fetchAllConversations = async (userId) => {
   return allConv.map((conv) => {
     return {
       id: conv.id,
-      messages: conv.messages,
+      messages: conv.messages.filter(
+        (msg) => msg.text !== "" && msg.text !== null
+      ),
       otherUser: userId !== conv?.user1?.id ? conv?.user1 : conv?.user2,
     };
   });
