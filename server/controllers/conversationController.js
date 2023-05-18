@@ -26,6 +26,8 @@ const fetchAllConversations = async (userId) => {
         where: {
           conversationId: { [Op.col]: "Conversation.id" },
         },
+        required: true,
+        duplicating: false,
       },
       {
         model: User,
@@ -33,6 +35,8 @@ const fetchAllConversations = async (userId) => {
         where: {
           id: { [Op.col]: "Conversation.user1Id" },
         },
+        required: true,
+        duplicating: false,
       },
       {
         model: User,
@@ -40,6 +44,8 @@ const fetchAllConversations = async (userId) => {
         where: {
           id: { [Op.col]: "Conversation.user2Id" },
         },
+        required: true,
+        duplicating: false,
       },
     ],
   });

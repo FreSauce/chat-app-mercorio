@@ -17,12 +17,14 @@ Conversation.findConversation = async function (user1Id, user2Id) {
       },
     },
     include: {
-      model : Message,
+      model: Message,
       as: "messages",
       where: {
-        conversationId: {[Op.col]: 'Conversation.id'}
-      }
-    }
+        conversationId: { [Op.col]: "Conversation.id" },
+      },
+      required: true,
+      duplicating: false,
+    },
   });
 
   // return conversation or null if it doesn't exist
