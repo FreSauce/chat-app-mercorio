@@ -6,15 +6,15 @@ import InvitePerson from "./InvitePerson";
 const ConversationsSidebar = ({ conversations, setSelectedConversation }) => {
   const [filteredConversations, setFilteredConversations] =
     useState(conversations);
-  const [search, setSearch] = useState("");
+  const [searchs, setSearch] = useState("");
 
   useEffect(() => {
     setFilteredConversations(
       conversations.filter((conv) =>
-        conv.otherUser.name.toLowerCase().includes(search.toLowerCase())
+        conv.otherUser.name.toLowerCase().includes(searchs.toLowerCase())
       )
     );
-  }, [search, conversations]);
+  }, [searchs, conversations]);
 
   return (
     <div className="sidebar hidden lg:flex w-1/3 flex-2 flex-col pr-6">
